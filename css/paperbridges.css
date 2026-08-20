@@ -1,0 +1,91 @@
+/* ====================================================================
+   PaperBridges — flat grayscale stylesheet for slow e-ink screens.
+   One rule per line; solid fills only (no shadows, no gradients).
+   Islands: numbered circles; bridges: solid divs under islands.
+   Island states: done d9d9d9, sel/err inverted. Grid guides 909090.
+   ==================================================================== */
+
+* { margin:0; padding:0; -webkit-box-sizing:border-box; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+
+html, body { background:#ffffff; color:#111111; font-family:Verdana, Geneva, sans-serif; -webkit-text-size-adjust:100%; }
+
+.screen { max-width:560px; margin:0 auto; padding:8px 4px; }
+.screen.hidden { display:none; }
+
+/* ---------- start ---------- */
+.masthead { border-top:4px solid #000000; border-bottom:1px solid #000000; padding:14px 0 10px 0; margin-top:8px; text-align:center; }
+.logo { font-size:27px; font-weight:bold; letter-spacing:3px; line-height:1; }
+.logo em { font-style:normal; display:inline-block; background:#000000; color:#ffffff; padding:0 5px; }
+.tag { font-size:9px; letter-spacing:4px; margin-top:7px; }
+.deco { margin-top:12px; font-size:14px; letter-spacing:2px; font-family:'Courier New', monospace; }
+.deco .isl { display:inline-block; width:25px; height:25px; border:2px solid #000000; border-radius:50%; -webkit-border-radius:50%; line-height:21px; font-weight:bold; }
+.deco .br-h1 { border-bottom:2px solid #000000; padding:0 6px; margin:0 2px; }
+.deco .br-h2 { letter-spacing:-2px; font-weight:bold; padding:0 6px; margin:0 2px; }
+
+.panel { border:1px solid #000000; margin-top:14px; padding:10px 8px; }
+.panel-label { font-size:9px; letter-spacing:3px; font-family:'Courier New', monospace; margin-bottom:6px; }
+.lvl-row { display:table; width:100%; border:1px solid #000000; margin-bottom:5px; padding:7px 8px; cursor:pointer; min-height:44px; }
+.lvl-row b { display:table-cell; width:28px; font-size:19px; vertical-align:middle; }
+.lvl-row .nm { display:table-cell; vertical-align:middle; font-size:15px; font-weight:bold; }
+.lvl-row .er { display:table-cell; vertical-align:middle; text-align:right; font-size:10px; color:#4a4a4a; font-family:'Courier New', monospace; }
+.lvl-row.on { background:#000000; color:#ffffff; }
+.lvl-row.on .er { color:#b5b5b5; }
+
+/* buttons: fill-first */
+.btn { display:block; width:100%; background:#000000; color:#ffffff; border:2px solid #000000; font-family:Verdana, Geneva, sans-serif; font-size:14px; font-weight:bold; letter-spacing:2px; padding:11px 4px; min-height:46px; cursor:pointer; margin-top:8px; white-space:nowrap; overflow:hidden; -webkit-appearance:none; }
+.btn.go { border-width:2px; }
+.btn.alt { background:#ffffff; color:#111111; border-style:dashed; border-width:1px; font-weight:normal; }
+.btn:disabled { background:#ffffff; color:#9a9a9a; border-color:#9a9a9a; }
+
+.stat-line { margin-top:12px; font-size:11px; text-align:center; color:#3f3f3f; font-family:'Courier New', monospace; }
+.start-foot { margin:14px 0 6px 0; text-align:center; font-size:9px; letter-spacing:2px; color:#4a4a4a; }
+.made { text-align:center; font-size:9px; letter-spacing:3px; font-family:'Courier New', monospace; margin-bottom:10px; }
+.made a { color:#111111; font-weight:bold; text-decoration:none; border-bottom:1px solid #000000; }
+.made .ver { color:#4a4a4a; }
+
+/* ---------- play ---------- */
+.play-top { display:table; width:100%; margin-top:4px; padding:5px 2px; border-bottom:1px solid #000000; }
+.play-top span { display:table-cell; vertical-align:middle; }
+.brand2 { font-size:13px; font-weight:bold; letter-spacing:2px; white-space:nowrap; }
+.brand2 em { font-style:normal; background:#000000; color:#ffffff; padding:0 3px; }
+.lvl-name { text-align:center; font-size:11px; letter-spacing:3px; font-family:'Courier New', monospace; }
+.clock { text-align:right; font-size:14px; font-family:'Courier New', monospace; white-space:nowrap; }
+
+#board-wrap { display:table; margin:8px auto 0 auto; position:relative; }
+#board { display:inline-block; position:relative; border:4px double #000000; background:#ffffff; box-sizing:content-box; }
+
+/* result popup: centred inside the board, four cells wide */
+.board-pop { display:none; position:absolute; left:50%; top:50%; width:44%; margin-left:-22%; margin-top:-88px; background:#ffffff; border:2px solid #000000; padding:12px 8px 10px 8px; text-align:center; z-index:6; }
+.board-pop.show { display:block; }
+.pop-title { font-size:17px; font-weight:bold; letter-spacing:2px; border-bottom:1px solid #000000; padding-bottom:6px; margin-bottom:6px; }
+.pop-body { font-size:11px; font-family:'Courier New', monospace; line-height:1.5; margin-bottom:9px; }
+.mbtn { display:inline-block; background:#ffffff; color:#111111; border:1px solid #000000; font-family:Verdana, Geneva, sans-serif; font-size:10px; font-weight:bold; letter-spacing:1px; padding:6px 10px; cursor:pointer; }
+.mbtn + .mbtn { margin-left:4px; }
+.bcell { position:absolute; background:#ffffff; cursor:pointer; }
+.bcell.isl { border:2px solid #000000; border-radius:50%; -webkit-border-radius:50%; font-weight:bold; text-align:center; background:#ffffff; z-index:2; }
+.bcell.isl.done { background:#d9d9d9; }
+.bcell.isl.sel { background:#000000; color:#ffffff; }
+.bcell.isl.err { background:#000000; color:#ffffff; }
+
+/* bridge lines: solid divs on an overlay under the islands (islands
+   z-index 2, white circle bg cover the overshoot, so each line visually
+   starts/ends at the circle edge) */
+#bridge-layer, #sel-layer { position:absolute; left:0; top:0; width:100%; height:100%; z-index:1; pointer-events:none; }
+.bridge { position:absolute; background:#000000; font-size:0; line-height:0; }
+.bridge.bad { background:#707070; }
+.selmark { position:absolute; background:#ffffff; border:2px solid #000000; font-size:0; line-height:0; }
+.dash { position:absolute; background:#8a8a8a; font-size:0; line-height:0; }
+
+.btn-row { margin-top:8px; overflow:hidden; }
+.btn-row .btn { float:left; width:24.4%; margin-left:0.8%; font-size:12px; letter-spacing:1px; padding:10px 1px; min-height:46px; }
+.btn-row .btn:first-child { margin-left:0; }
+
+.how-line { margin-top:6px; text-align:center; font-size:9px; letter-spacing:1px; color:#4a4a4a; line-height:1.5; }
+
+/* ---------- overlays ---------- */
+.overlay { position:fixed; top:0; left:0; right:0; bottom:0; background:#ffffff; display:table; width:100%; height:100%; z-index:10; }
+.overlay.hidden { display:none; }
+.overlay .box { display:table-cell; vertical-align:middle; text-align:center; padding:20px; }
+.box-inner { max-width:360px; margin:0 auto; border:1px solid #000000; padding:18px 16px; }
+.box-title { font-size:11px; letter-spacing:4px; font-family:'Courier New', monospace; margin-bottom:4px; }
+.box-body { font-size:13px; margin:8px 0; line-height:1.6; }

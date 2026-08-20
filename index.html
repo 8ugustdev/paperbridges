@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="PaperBridges — offline Hashiwokakero with unlimited unique puzzles, built for Kindle e-ink.">
+    <title>PaperBridges</title>
+    <link rel="stylesheet" href="css/paperbridges.css?v=7">
+</head>
+<body>
+
+    <!-- ============ START SCREEN ============ -->
+    <div id="screen-start" class="screen">
+
+        <div class="masthead">
+            <div class="logo">PAPER<em>BRIDGES</em></div>
+            <div class="tag">OFFLINE HASHIWOKAKERO FOR E-READERS</div>
+            <div class="deco" id="deco-row"><span class="isl">4</span><span class="br-h1">&mdash;</span><span class="isl">2</span><span class="isl">3</span><span class="br-h2">&#61;</span><span class="isl">3</span></div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-label">DIFFICULTY</div>
+            <div id="lvl-list">
+                <div class="lvl-row" data-v="1"><b>1</b><span class="nm">Easy</span><span class="er">6&times;6 &middot; 3 hints</span></div>
+                <div class="lvl-row" data-v="2"><b>2</b><span class="nm">Medium</span><span class="er">7&times;7 &middot; 2 hints</span></div>
+                <div class="lvl-row" data-v="3"><b>3</b><span class="nm">Hard</span><span class="er">8&times;8 &middot; 1 hint</span></div>
+                <div class="lvl-row" data-v="4"><b>4</b><span class="nm">Expert</span><span class="er">9&times;9 &middot; no hints</span></div>
+            </div>
+
+            <button class="btn go" id="btn-start">NEW GAME</button>
+            <button class="btn alt" id="btn-resume" style="display:none;">CONTINUE SAVED GAME</button>
+            <div class="stat-line" id="start-stats">&nbsp;</div>
+        </div>
+
+        <div class="start-foot">every puzzle new &middot; never repeats &middot; saves on device</div>
+        <div class="made">MADE BY <a href="https://8ugust.dev" rel="noopener">8UGUST.DEV</a> &middot; <span class="ver">V6</span></div>
+    </div>
+
+    <!-- ============ PLAY SCREEN ============ -->
+    <div id="screen-play" class="screen hidden">
+        <div class="play-top">
+            <span class="brand2">PAPER<em>BRIDGES</em></span>
+            <span class="lvl-name" id="lvl-label">EASY</span>
+            <span class="clock" id="clock">0:00</span>
+        </div>
+
+        <div id="board-wrap">
+            <div id="board"></div>
+            <div class="board-pop" id="win-pop">
+                <div class="pop-title">SOLVED</div>
+                <div class="pop-body" id="win-body">&nbsp;</div>
+                <div class="pop-btns">
+                    <button class="mbtn" id="btn-again">NEW GAME</button>
+                    <button class="mbtn" id="btn-close-win">CLOSE</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="btn-row">
+            <button class="btn" id="btn-undo">UNDO</button>
+            <button class="btn" id="btn-hint">HINT</button>
+            <button class="btn" id="btn-check">CHECK</button>
+            <button class="btn" id="btn-menu">MENU</button>
+        </div>
+        <div class="how-line">tap an island &middot; dotted lines mark unconnected neighbors &middot; tap one to bridge it &middot; tap a bridge to double it, again to remove</div>
+    </div>
+
+    <!-- ============ MENU ============ -->
+    <div class="overlay hidden" id="menu-modal">
+        <div class="box">
+            <div class="box-inner">
+                <div class="box-title">MENU</div>
+                <button class="btn" id="btn-new">NEW GAME</button>
+                <button class="btn" id="btn-exit">CHANGE DIFFICULTY</button>
+                <button class="btn alt" id="btn-close-menu">BACK TO GAME</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/engine.js?v=1"></script>
+    <script src="js/app.js?v=8"></script>
+</body>
+</html>

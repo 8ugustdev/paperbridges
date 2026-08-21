@@ -39,7 +39,7 @@ html, body { background:#ffffff; color:#111111; font-family:Verdana, Geneva, san
 
 .stat-line { margin-top:12px; font-size:11px; text-align:center; color:#3f3f3f; font-family:'Courier New', monospace; }
 .start-foot { margin:14px 0 6px 0; text-align:center; font-size:9px; letter-spacing:2px; color:#4a4a4a; }
-.back { text-align:left; font-size:9px; letter-spacing:3px; font-family:'Courier New', monospace; margin-top:5px; }
+.back { text-align:center; font-size:9px; letter-spacing:3px; font-family:'Courier New', monospace; margin-top:5px; }
 .back a { color:#111111; font-weight:bold; text-decoration:none; border-bottom:1px solid #000000; }
 .made { text-align:center; font-size:9px; letter-spacing:3px; font-family:'Courier New', monospace; margin-bottom:10px; }
 .made a { color:#111111; font-weight:bold; text-decoration:none; border-bottom:1px solid #000000; }

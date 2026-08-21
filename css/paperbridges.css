@@ -41,6 +41,8 @@ html, body { background:#ffffff; color:#111111; font-family:Verdana, Geneva, san
 .start-foot { margin:14px 0 6px 0; text-align:center; font-size:9px; letter-spacing:2px; color:#4a4a4a; }
 .foot { display:table; width:100%; table-layout:fixed; font-size:9px; letter-spacing:3px; font-family:'Courier New', monospace; margin-top:5px; }
 .back { display:table-cell; text-align:left; }
+.foot .src { display:table-cell; text-align:center; vertical-align:middle; }
+.foot .src svg { vertical-align:middle; }
 .made { display:table-cell; text-align:right; }
 .foot a { color:#111111; font-weight:bold; text-decoration:none; border-bottom:1px solid #000000; }
 .made .ver { color:#4a4a4a; }
